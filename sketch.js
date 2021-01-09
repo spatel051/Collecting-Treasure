@@ -1,6 +1,6 @@
-var path,boy,cash,diamonds,jwellery,sword, obstacleGroup, l;
+var path,boy,cash,diamonds,jwellery,sword;
 var pathImg,boyImg,cashImg,diamondsImg,jwelleryImg,swordImg;
-var treasureCollection = 0, obstacle, obstacleImage;
+var treasureCollection = 0;
 var cashG,diamondsG,jwelleryG,swordGroup;
 var PLAY = 1, END = 0, gameState;
 
@@ -12,7 +12,6 @@ function preload(){
   jwelleryImg = loadImage("jwell.png");
   swordImg = loadImage("sword.png");
   endImg =loadAnimation("gameOver.png");
-  obstacleImage = loadImage("obstacle1.png");
 }
 
 function setup(){
@@ -31,7 +30,6 @@ function setup(){
   diamondsG = new Group();
   jwelleryG = new Group();
   swordGroup = new Group();
-  obstacleGroup = new Group();
   
   gameState = PLAY;
   
@@ -51,7 +49,7 @@ function draw() {
       path.y = height/2;
     }
     
-    var rand = Math.round(random(1, 5));
+    var rand = Math.round(random(1, 4));
     if(World.frameCount % 25 === 0){
       if(rand == 1){
         createCash();
@@ -64,9 +62,6 @@ function draw() {
       }
       if(rand == 4){
         createSword();
-      }
-      if(rand == 5){
-        createObstacles();
       }
     }
     
@@ -86,12 +81,8 @@ function draw() {
     if(swordGroup.isTouching(boy)){
       gameState = END;
     }
-    if(obstacleGroup.isTouching(boy)){
-      gameState = END;   
-    }
   } else if(gameState == END){
     swordGroup.destroyEach();
-    obstacleGroup.destroyEach();
     gameState = END;
     boy.addAnimation("SahilRunning", endImg);
     boy.scale = 0.8;
@@ -105,7 +96,6 @@ function draw() {
     jwelleryG.velocityY = 0;
     swordGroup.destroyEach();
     swordGroup.velocityY = 0;
-    obstacleGroup.velocityY = 0;
     path.y = 0;
   }
   
@@ -150,13 +140,4 @@ function createSword(){
   sword.velocityY = 3;
   sword.lifetime = 150;
   swordGroup.add(sword);
-}
-
-function createObstacles(){
-  var obstacle = createSprite(Math.round(random(50, 500),40, 10, 10));
-  obstacle.addImage(obstacleImage);
-  obstacle.scale=0.1;
-  obstacle.velocityY = 3;
-  obstacle.lifetime = 150;
-  obstacleGroup.add(obstacle);
 }
