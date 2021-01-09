@@ -66,7 +66,7 @@ function draw() {
         createSword();
       }
       if(rand == 5){
-        createObstacle();
+        createObstacles();
       }
     }
     
@@ -152,7 +152,7 @@ function createSword(){
   swordGroup.add(sword);
 }
 
-function createObstacle(){
+function createObstacles(){
   var obstacle = createSprite(Math.round(random(50, 500),40, 10, 10));
   obstacle.addImage(obstacleImage);
   obstacle.scale=0.1;
