@@ -158,5 +158,5 @@ function createObstacle(){
   obstacle.scale=0.1;
   obstacle.velocityY = 3;
   obstacle.lifetime = 150;
-  obstalceGroup.add(obstacle);
+  obstacleGroup.add(obstacle);
 }
