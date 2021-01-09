@@ -86,8 +86,12 @@ function draw() {
     if(swordGroup.isTouching(boy)){
       gameState = END;
     }
+    if(obstacleGroup.isTouching(boy){
+      gameState = END;   
+    }
   } else if(gameState == END){
     swordGroup.destroyEach();
+    obstacleGroup.destroyEach();
     gameState = END;
     boy.addAnimation("SahilRunning", endImg);
     boy.scale = 0.8;
@@ -101,6 +105,7 @@ function draw() {
     jwelleryG.velocityY = 0;
     swordGroup.destroyEach();
     swordGroup.velocityY = 0;
+    obstacleGroup.velocityY = 0;
     path.y = 0;
   }
   
