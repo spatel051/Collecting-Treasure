@@ -1,4 +1,4 @@
-var path,boy,cash,diamonds,jwellery,sword, obstacleGroup;
+var path,boy,cash,diamonds,jwellery,sword, obstacleGroup, l;
 var pathImg,boyImg,cashImg,diamondsImg,jwelleryImg,swordImg;
 var treasureCollection = 0, obstacle, obstacleImage;
 var cashG,diamondsG,jwelleryG,swordGroup;
