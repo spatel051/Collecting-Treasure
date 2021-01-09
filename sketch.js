@@ -1,6 +1,6 @@
-var path,boy,cash,diamonds,jwellery,sword;
+var path,boy,cash,diamonds,jwellery,sword, obstacleGroup;
 var pathImg,boyImg,cashImg,diamondsImg,jwelleryImg,swordImg;
-var treasureCollection = 0;
+var treasureCollection = 0, obstacle, obstacleImage;
 var cashG,diamondsG,jwelleryG,swordGroup;
 var PLAY = 1, END = 0, gameState;
 
@@ -12,6 +12,7 @@ function preload(){
   jwelleryImg = loadImage("jwell.png");
   swordImg = loadImage("sword.png");
   endImg =loadAnimation("gameOver.png");
+  obstacleImage = loadImage("obstacle1.png");
 }
 
 function setup(){
@@ -26,10 +27,11 @@ function setup(){
   boy.addAnimation("SahilRunning",boyImg);
   boy.scale = 0.08;
   
-  cashG=new Group();
-  diamondsG=new Group();
-  jwelleryG=new Group();
-  swordGroup=new Group();
+  cashG = new Group();
+  diamondsG = new Group();
+  jwelleryG = new Group();
+  swordGroup = new Group();
+  obstacleGroup = new Group();
   
   gameState = PLAY;
   
@@ -49,7 +51,7 @@ function draw() {
       path.y = height/2;
     }
     
-    var rand = Math.round(random(1, 4));
+    var rand = Math.round(random(1, 5));
     if(World.frameCount % 25 === 0){
       if(rand == 1){
         createCash();
@@ -62,6 +64,9 @@ function draw() {
       }
       if(rand == 4){
         createSword();
+      }
+      if(rand == 5){
+        createObstacle();
       }
     }
     
@@ -140,4 +145,13 @@ function createSword(){
   sword.velocityY = 3;
   sword.lifetime = 150;
   swordGroup.add(sword);
+}
+
+function createObstacle(){
+  var obstacle = createSprite(Math.round(random(50, 500),40, 10, 10));
+  obstacle.addImage(obstacleImage);
+  obstacle.scale=0.1;
+  obstacle.velocityY = 3;
+  obstacle.lifetime = 150;
+  obstalceGroup.add(obstacle);
 }
