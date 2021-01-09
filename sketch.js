@@ -50,7 +50,7 @@ function draw() {
     }
     
     var rand = Math.round(random(1, 4));
-    if(World.frameCount % 50 === 0){
+    if(World.frameCount % 25 === 0){
       if(rand == 1){
         createCash();
       }
