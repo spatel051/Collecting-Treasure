@@ -22,7 +22,7 @@ function setup(){
   path.addImage(pathImg);
   path.velocityY = 4;
 
-  boy = createSprite(70,330,20,20);
+  boy = createSprite(70,500,20,20);
   boy.addAnimation("SahilRunning",boyImg);
   boy.scale = 0.08;
   
