@@ -86,7 +86,7 @@ function draw() {
     if(swordGroup.isTouching(boy)){
       gameState = END;
     }
-    if(obstacleGroup.isTouching(boy){
+    if(obstacleGroup.isTouching(boy)){
       gameState = END;   
     }
   } else if(gameState == END){
